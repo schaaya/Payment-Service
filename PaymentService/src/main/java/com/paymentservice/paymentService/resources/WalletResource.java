@@ -28,7 +28,13 @@ public class WalletResource {
   @Autowired
   private final WalletService walletService;
 
-
+  @PostMapping(path = "/createWalletDetails")
+  ResponseEntity<WalletDetailsResponse> postWalletDetails(
+      @RequestBody final WalletDetailsRequest walletDetailsRequest,
+      @PathVariable final String sessionId) {
+    return new ResponseEntity<>(walletService.getWalletDetails(walletDetailsRequest, sessionId),
+        HttpStatus.OK);
+  }
   @GetMapping(path = "/walletDetails")
   ResponseEntity<WalletDetailsResponse> getWalletDetails(
       @RequestBody final WalletDetailsRequest walletDetailsRequest,

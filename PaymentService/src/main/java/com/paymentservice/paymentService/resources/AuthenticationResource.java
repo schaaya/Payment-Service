@@ -24,7 +24,7 @@ public class AuthenticationResource {
 
   //changePassword
   @GetMapping(path = "/getAPI")
-  ResponseEntity<String> getAPI(@RequestBody final LoginRequest loginRequest) {
+  ResponseEntity<String> getAPI() {
     return new ResponseEntity<>("success", HttpStatus.OK);
   }
 
